@@ -9,10 +9,10 @@ namespace CSharpSwagger
 		public static void Main (string[] args)
 		{
 			Console.WriteLine("Hello World");
-			ApiClient dan = new ApiClient("http://192.168.250.28:5003");
-			DeedApi deed = new DeedApi(dan);
-			IO.Swagger.Model.OperativeDeed testme = deed.DeedDeedReferenceGet("fdc6d6");
-			Console.Write(testme.ToJson());
+			ApiClient client = new ApiClient("http://192.168.250.28:5003");
+			DeedApi deed = new DeedApi(client);
+			IO.Swagger.Model.OperativeDeed real_deed = deed.DeedDeedReferenceGet("fdc6d6");
+			Console.Write(real_deed.ToJson());
 
 			Console.WriteLine ("Process Complete");
 			Console.ReadLine();
