@@ -1,3 +1,0 @@
-/Users/danmarker/Projects/CSharpSwagger/CSharpSwagger/obj/x86/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/Users/danmarker/Projects/CSharpSwagger/CSharpSwagger/bin/Release/Newtonsoft.Json.dll
-/Users/danmarker/Projects/CSharpSwagger/CSharpSwagger/bin/Release/RestSharp.dll
