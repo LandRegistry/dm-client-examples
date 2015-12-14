@@ -18,7 +18,7 @@ namespace IO.Swagger.Model {
     /// Gets or Sets TitleNumber
     /// </summary>
     [DataMember(Name="title_number", EmitDefaultValue=false)]
-    public TitleNumber TitleNumber { get; set; }
+    public string TitleNumber { get; set; }
 
     
     /// <summary>
@@ -32,7 +32,7 @@ namespace IO.Swagger.Model {
     /// Gets or Sets MdRef
     /// </summary>
     [DataMember(Name="md_ref", EmitDefaultValue=false)]
-    public MdRef MdRef { get; set; }
+    public string MdRef { get; set; }
 
     
 
