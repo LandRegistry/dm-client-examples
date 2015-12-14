@@ -8,35 +8,16 @@ namespace CSharpSwagger
 {
 	class MainClass
 	{
+		static ApiClient client = new ApiClient("http://dm-api-test-hub.herokuapp.com/");
+
 		public static void Main (string[] args)
 		{
-			Console.WriteLine("Starting Client");
-			ApiClient client = new ApiClient("http://dm-api-test-hub.herokuapp.com/");
-			DeedApi deed_get = new DeedApi(client);
-			DefaultApi deed_post = new DefaultApi (client);
-			Console.WriteLine ("Client created");
-			Console.WriteLine(" ");
-			Console.WriteLine ("Creating Post to Client:");
+			// Give the deed a Title Number and MdRef
+			string titleNumber = "DT567568";
+			string mdRef = "e-MD123G";
 
-			DeedApplication deed_app = new DeedApplication ();
-
-			deed_app.TitleNumber = "DT567568";
-			deed_app.MdRef = "e-MD123G";
-
-			Console.WriteLine ("Creating Borrower");
-
-//			{
-//				"forename": "Paul",
-//				"middle_name": "",
-//				"surname": "Smythe",
-//				"gender": "Male",
-//				"address": "2 The Street, Plymouth, PL1 2PP",
-//				"dob": "01/10/1976",
-//				"phone_number": "07502154062"
-//			}
-
-
-			IO.Swagger.Model.PrivateIndividualName borrower = new PrivateIndividualName ();
+			// create at least one borrower
+			PrivateIndividualName borrower = new PrivateIndividualName ();
 			borrower.Forename = "Paul";
 			borrower.MiddleName = "";
 			borrower.Surname = "Smythe";
@@ -45,29 +26,45 @@ namespace CSharpSwagger
 			borrower.Dob = "01/10/1976";
 			borrower.PhoneNumber = "07502154062";
 
-			Borrowers borrowerlist = new Borrowers();
+			// add the borrower(s) to a list of borrowers (min 1)
+			Borrowers borrowerList = new Borrowers();
+			borrowerList.Add(borrower);
 
-			borrowerlist.Add(borrower);
+			string deedToken = PostDeed (titleNumber, mdRef, borrowerList);
 
-			deed_app.Borrowers = borrowerlist;
+			GetDeed(deedToken);
+
+			Console.WriteLine("Process Complete");
+			Console.ReadLine();
+		}
+
+		private static OperativeDeed GetDeed(string token){
+			DeedApi deedGet = new DeedApi(client);
+
+			Console.WriteLine("Retrieving Newly Posted Deed");
+			OperativeDeed operativeDeed = deedGet.DeedDeedReferenceGet(token);
+			Console.Write(operativeDeed.ToJson());
+
+			return operativeDeed;
+		}
+
+		private static string PostDeed(string titleNumber, string mdRef, Borrowers borrowerList) {
+			DefaultApi deedPost = new DefaultApi(client);
+			DeedApplication deedApp = new DeedApplication();
+
+			deedApp.TitleNumber = titleNumber;
+			deedApp.MdRef = mdRef;
+
+			deedApp.Borrowers = borrowerList;
 
 			Console.WriteLine ("Sending POST to API");
-
-			string result = deed_post.AddDeed(deed_app);
-
+			string result = deedPost.AddDeed(deedApp);
 			Console.WriteLine ("New Deed created and accessible at : " + result);
 
 			string token = result.Substring (result.Length-6);
-
 			Console.WriteLine("Token for new deed is " + token);
 
-
-			Console.WriteLine ("Retrieving Newly Posted Deed");
-			IO.Swagger.Model.OperativeDeed real_deed = deed_get.DeedDeedReferenceGet(token);
-			Console.Write(real_deed.ToJson());
-
-			Console.WriteLine ("Process Complete");
-			Console.ReadLine();
+			return token;
 		}
 	}
 }
