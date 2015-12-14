@@ -55,10 +55,15 @@ namespace CSharpSwagger
 
 			string res = deed2.AddDeed(deed_app);
 
-			Console.WriteLine (res);
+			Console.WriteLine ("New Deed created and accessible at : " + res);
+
+			string token = res.Substring (res.Length-6);
+
+			Console.WriteLine("Token for new deed is " + token);
+
 
 			Console.WriteLine ("Retrieving Newly Posted Deed");
-			IO.Swagger.Model.OperativeDeed real_deed = deed.DeedDeedReferenceGet("5983b3");
+			IO.Swagger.Model.OperativeDeed real_deed = deed.DeedDeedReferenceGet(token);
 			Console.Write(real_deed.ToJson());
 
 			Console.WriteLine ("Process Complete");
