@@ -12,8 +12,8 @@ namespace CSharpSwagger
 		{
 			Console.WriteLine("Hello World");
 			ApiClient client = new ApiClient("http://192.168.250.28:5003");
-			DeedApi deed = new DeedApi(client);
-			DefaultApi deed2 = new DefaultApi (client);
+			DeedApi deed_get = new DeedApi(client);
+			DefaultApi deed_post = new DefaultApi (client);
 			Console.WriteLine ("Client created");
 			Console.WriteLine(" ");
 			Console.WriteLine ("Creating Post to Client:");
@@ -53,17 +53,17 @@ namespace CSharpSwagger
 
 			Console.WriteLine ("Sending POST to API");
 
-			string res = deed2.AddDeed(deed_app);
+			string result = deed_post.AddDeed(deed_app);
 
-			Console.WriteLine ("New Deed created and accessible at : " + res);
+			Console.WriteLine ("New Deed created and accessible at : " + result);
 
-			string token = res.Substring (res.Length-6);
+			string token = result.Substring (res.Length-6);
 
 			Console.WriteLine("Token for new deed is " + token);
 
 
 			Console.WriteLine ("Retrieving Newly Posted Deed");
-			IO.Swagger.Model.OperativeDeed real_deed = deed.DeedDeedReferenceGet(token);
+			IO.Swagger.Model.OperativeDeed real_deed = deed_get.DeedDeedReferenceGet(token);
 			Console.Write(real_deed.ToJson());
 
 			Console.WriteLine ("Process Complete");
