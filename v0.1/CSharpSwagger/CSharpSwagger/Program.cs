@@ -57,7 +57,7 @@ namespace CSharpSwagger
 
 			Console.WriteLine ("New Deed created and accessible at : " + result);
 
-			string token = result.Substring (res.Length-6);
+			string token = result.Substring (result.Length-6);
 
 			Console.WriteLine("Token for new deed is " + token);
 
