@@ -53,7 +53,9 @@ namespace CSharpSwagger
 
 			Console.WriteLine ("Sending POST to API");
 
-			deed2.AddDeed(deed_app);
+			string res = deed2.AddDeed(deed_app);
+
+			Console.WriteLine (res);
 
 			Console.WriteLine ("Retrieving Newly Posted Deed");
 			IO.Swagger.Model.OperativeDeed real_deed = deed.DeedDeedReferenceGet("5983b3");
