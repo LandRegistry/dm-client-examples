@@ -21,8 +21,8 @@ namespace IO.Swagger.Api
         /// The post Deed endpoint creates a new deed based on the JSON provided.\nThe reponse will return a URL that can retrieve the created deed.
         /// </remarks>
         /// <param name="body"></param>
-        /// <returns></returns>
-        void AddDeed (DeedApplication body);
+        /// <returns>string</returns>
+        string AddDeed (DeedApplication body);
   
         /// <summary>
         /// Deed
@@ -31,8 +31,8 @@ namespace IO.Swagger.Api
         /// The post Deed endpoint creates a new deed based on the JSON provided.\nThe reponse will return a URL that can retrieve the created deed.
         /// </remarks>
         /// <param name="body"></param>
-        /// <returns></returns>
-        System.Threading.Tasks.Task AddDeedAsync (DeedApplication body);
+        /// <returns>string</returns>
+        System.Threading.Tasks.Task<string> AddDeedAsync (DeedApplication body);
         
     }
   
@@ -93,16 +93,15 @@ namespace IO.Swagger.Api
         /// Deed The post Deed endpoint creates a new deed based on the JSON provided.\nThe reponse will return a URL that can retrieve the created deed.
         /// </summary>
         /// <param name="body"></param> 
-        /// <returns></returns>            
-        public void AddDeed (DeedApplication body)
+        /// <returns>string</returns>            
+        public string AddDeed (DeedApplication body)
         {
             
             // verify the required parameter 'body' is set
             if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling AddDeed");
             
     
-            var path_ = "/deed/" +
-            	"";
+            var path_ = "/deed/";
     
             var pathParams = new Dictionary<String, String>();
             var queryParams = new Dictionary<String, String>();
@@ -134,28 +133,27 @@ namespace IO.Swagger.Api
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path_, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, pathParams, authSettings);
-    
+			Console.WriteLine (response);
             if (((int)response.StatusCode) >= 400)
-
-				throw new ApiException ((int)response.StatusCode, "Error calling AddDeed: " + response.Content, response.Content);
+                throw new ApiException ((int)response.StatusCode, "Error calling AddDeed: " + response.Content, response.Content);
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling AddDeed: " + response.ErrorMessage, response.ErrorMessage);
     
-            return;
+            return (string) ApiClient.Deserialize(response, typeof(string));
         }
     
         /// <summary>
         /// Deed The post Deed endpoint creates a new deed based on the JSON provided.\nThe reponse will return a URL that can retrieve the created deed.
         /// </summary>
         /// <param name="body"></param>
-        /// <returns></returns>
-        public async System.Threading.Tasks.Task AddDeedAsync (DeedApplication body)
+        /// <returns>string</returns>
+        public async System.Threading.Tasks.Task<string> AddDeedAsync (DeedApplication body)
         {
             // verify the required parameter 'body' is set
             if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling AddDeed");
             
     
-            var path_ = "/deed";
+            var path_ = "/deed/";
     
             var pathParams = new Dictionary<String, String>();
             var queryParams = new Dictionary<String, String>();
@@ -190,8 +188,7 @@ namespace IO.Swagger.Api
             if (((int)response.StatusCode) >= 400)
                 throw new ApiException ((int)response.StatusCode, "Error calling AddDeed: " + response.Content, response.Content);
 
-            
-            return;
+            return (string) ApiClient.Deserialize(response, typeof(string));
         }
         
     }
