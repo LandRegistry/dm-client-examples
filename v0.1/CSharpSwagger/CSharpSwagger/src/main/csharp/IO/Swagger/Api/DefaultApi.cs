@@ -101,7 +101,8 @@ namespace IO.Swagger.Api
             if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling AddDeed");
             
     
-            var path_ = "/deed";
+            var path_ = "/deed/" +
+            	"";
     
             var pathParams = new Dictionary<String, String>();
             var queryParams = new Dictionary<String, String>();
@@ -135,7 +136,8 @@ namespace IO.Swagger.Api
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path_, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, pathParams, authSettings);
     
             if (((int)response.StatusCode) >= 400)
-                throw new ApiException ((int)response.StatusCode, "Error calling AddDeed: " + response.Content, response.Content);
+
+				throw new ApiException ((int)response.StatusCode, "Error calling AddDeed: " + response.Content, response.Content);
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling AddDeed: " + response.ErrorMessage, response.ErrorMessage);
     
