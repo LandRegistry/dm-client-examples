@@ -32,13 +32,16 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\Desktop\Desktop\csharp-client\bin\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Desktop\Desktop\csharp-client\bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
-      <HintPath>..\..\..\Desktop\Desktop\csharp-client\bin\RestSharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Desktop\Desktop\csharp-client\bin\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="IO.Swagger">
+      <HintPath>..\..\..\..\..\..\Desktop\Desktop\csharp-client\bin\IO.Swagger.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
