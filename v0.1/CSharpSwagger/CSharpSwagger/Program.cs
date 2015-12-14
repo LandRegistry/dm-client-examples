@@ -10,7 +10,7 @@ namespace CSharpSwagger
 	{
 		public static void Main (string[] args)
 		{
-			Console.WriteLine("Hello World");
+			Console.WriteLine("Starting Client");
 			ApiClient client = new ApiClient("http://dm-api-test-hub.herokuapp.com/");
 			DeedApi deed_get = new DeedApi(client);
 			DefaultApi deed_post = new DefaultApi (client);
