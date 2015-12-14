@@ -18,7 +18,7 @@ namespace CSharpSwagger
 			Console.WriteLine(" ");
 			Console.WriteLine ("Creating Post to Client:");
 
-			IO.Swagger.Model.DeedApplication deed_app = new DeedApplication ();
+			DeedApplication deed_app = new DeedApplication ();
 
 			deed_app.TitleNumber = "DT567568";
 			deed_app.MdRef = "e-MD123G";
