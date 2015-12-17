@@ -1,6 +1,6 @@
 # Swagger Client Examples
 
-These clients are generated from our [Swagger schema](http://editor.swagger.io/#/http://editor.swagger.io/#/?import=https://raw.githubusercontent.com/LandRegistry/dm-deed-api/SwaggerUpdateForClients/application/deed/deed-api.json) for the Digital Mortgage Deed API. They are just simple implementations to get anyone onboarding up and running quickly.
+These clients are generated from our [Swagger schema](http://editor.swagger.io/#/?import=https://raw.githubusercontent.com/LandRegistry/dm-deed-api/SwaggerUpdateForClients/application/deed/deed-api.json) for the Digital Mortgage Deed API. They are just simple implementations to get anyone onboarding up and running quickly.
 
 ### Clients
 
