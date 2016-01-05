@@ -42,8 +42,8 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <param name="deedReference">Unique reference of the deed.</param>
         /// <param name="body"></param>
-        /// <returns>OperativeDeed</returns>
-        OperativeDeed DeedDeedReferencePut (string deedReference, DeedApplication body);
+        /// <returns>string</returns>
+        string DeedDeedReferencePut (string deedReference, DeedApplication body);
   
         /// <summary>
         /// Deed Update
@@ -53,8 +53,8 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <param name="deedReference">Unique reference of the deed.</param>
         /// <param name="body"></param>
-        /// <returns>OperativeDeed</returns>
-        System.Threading.Tasks.Task<OperativeDeed> DeedDeedReferencePutAsync (string deedReference, DeedApplication body);
+        /// <returns>string</returns>
+        System.Threading.Tasks.Task<string> DeedDeedReferencePutAsync (string deedReference, DeedApplication body);
         
     }
   
@@ -218,8 +218,8 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <param name="deedReference">Unique reference of the deed.</param> 
         /// <param name="body"></param> 
-        /// <returns>OperativeDeed</returns>            
-        public OperativeDeed DeedDeedReferencePut (string deedReference, DeedApplication body)
+        /// <returns>string</returns>            
+        public string DeedDeedReferencePut (string deedReference, DeedApplication body)
         {
             
             // verify the required parameter 'deedReference' is set
@@ -268,7 +268,7 @@ namespace IO.Swagger.Api
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling DeedDeedReferencePut: " + response.ErrorMessage, response.ErrorMessage);
     
-            return (OperativeDeed) ApiClient.Deserialize(response, typeof(OperativeDeed));
+            return (string) ApiClient.Deserialize(response, typeof(string));
         }
     
         /// <summary>
@@ -276,8 +276,8 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <param name="deedReference">Unique reference of the deed.</param>
         /// <param name="body"></param>
-        /// <returns>OperativeDeed</returns>
-        public async System.Threading.Tasks.Task<OperativeDeed> DeedDeedReferencePutAsync (string deedReference, DeedApplication body)
+        /// <returns>string</returns>
+        public async System.Threading.Tasks.Task<string> DeedDeedReferencePutAsync (string deedReference, DeedApplication body)
         {
             // verify the required parameter 'deedReference' is set
             if (deedReference == null) throw new ApiException(400, "Missing required parameter 'deedReference' when calling DeedDeedReferencePut");
@@ -321,7 +321,7 @@ namespace IO.Swagger.Api
             if (((int)response.StatusCode) >= 400)
                 throw new ApiException ((int)response.StatusCode, "Error calling DeedDeedReferencePut: " + response.Content, response.Content);
 
-            return (OperativeDeed) ApiClient.Deserialize(response, typeof(OperativeDeed));
+            return (string) ApiClient.Deserialize(response, typeof(string));
         }
         
     }
