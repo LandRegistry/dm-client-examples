@@ -257,6 +257,7 @@ namespace IO.Swagger.Api
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path_, Method.PUT, queryParams, postBody, headerParams, formParams, fileParams, pathParams, authSettings);
     
 			if (((int)response.StatusCode) >= 400)
+
 				throw new ApiException ((int)response.StatusCode, "Error calling DeedDeedReferencePut: " + response.Content, response.Content);
 
 			else if (((int)response.StatusCode) == 0)

@@ -33,6 +33,7 @@ namespace CSharpSwagger
 
 			GetDeed(deedToken);
 
+			//Starting change of DATA for PUT
 
 			// Give the deed a new Title Number and MdRef
 			string titleNumberNew = "DT567567";
@@ -89,7 +90,7 @@ namespace CSharpSwagger
 		private static OperativeDeed UpdateDeed(string token, string titleNumber, string mdRef, Borrowers borrowerList){
 			DeedApi deedPut = new DeedApi (client);
 			DeedApplication deedApp = new DeedApplication ();
-
+			// Setting new DeedApp to called in Vars
 			deedApp.TitleNumber = titleNumber;
 			deedApp.MdRef = mdRef;
 			deedApp.Borrowers = borrowerList;
@@ -97,7 +98,10 @@ namespace CSharpSwagger
 			Console.WriteLine("Compiling Updates");
 			Console.WriteLine ("NEW Deed is = " + deedApp);
 			Console.WriteLine ("Sending update request to this deed");
+
 			OperativeDeed operativeDeed = deedPut.DeedDeedReferencePut (token);
+
+			Console.Write(operativeDeed.ToJson());
 
 			return operativeDeed;
 		}
