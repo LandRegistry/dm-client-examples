@@ -51,11 +51,9 @@
     <Compile Include="src\main\csharp\IO\Swagger\Model\Borrowers.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Model\DeedApplication.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Model\Error.cs" />
-    <Compile Include="src\main\csharp\IO\Swagger\Model\MdRef.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Model\OperativeDeed.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Model\OperativeDeedDeed.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Model\PrivateIndividualName.cs" />
-    <Compile Include="src\main\csharp\IO\Swagger\Model\TitleNumber.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
