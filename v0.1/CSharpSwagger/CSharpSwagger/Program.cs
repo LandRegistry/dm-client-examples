@@ -99,11 +99,13 @@ namespace CSharpSwagger
 			Console.WriteLine ("NEW Deed is = " + deedApp);
 			Console.WriteLine ("Sending update request to this deed");
 
-			OperativeDeed operativeDeed = deedPut.DeedDeedReferencePut (token);
+			deedPut.DeedDeedReferencePut (token, deedApp);
 
-			Console.Write(operativeDeed.ToJson());
+			OperativeDeed opertativeNewDeed = GetDeed (token);
 
-			return operativeDeed;
+			Console.Write(opertativeNewDeed.ToJson());
+
+			return opertativeNewDeed;
 		}
 	}
 }
