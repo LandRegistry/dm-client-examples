@@ -103,8 +103,6 @@ namespace CSharpSwagger
 
 			OperativeDeed opertativeNewDeed = GetDeed (token);
 
-			Console.Write(opertativeNewDeed.ToJson());
-
 			return opertativeNewDeed;
 		}
 	}
