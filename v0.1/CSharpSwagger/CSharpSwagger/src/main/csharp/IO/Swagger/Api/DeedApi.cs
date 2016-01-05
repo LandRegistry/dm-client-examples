@@ -18,7 +18,7 @@ namespace IO.Swagger.Api
         /// Deed
         /// </summary>
         /// <remarks>
-        /// The Deed endpoint returns details of a specific deed based on the unique deed reference.\nThe response includes the Title Number, Property information, Borrower(s) information and deed information.
+        /// The Deed endpoint returns details of a specific deed based on the unique deed reference. The response includes the Title Number, Property information, Borrower(s) information and deed information.
         /// </remarks>
         /// <param name="deedReference">Unique reference of the deed.</param>
         /// <returns>OperativeDeed</returns>
@@ -28,11 +28,33 @@ namespace IO.Swagger.Api
         /// Deed
         /// </summary>
         /// <remarks>
-        /// The Deed endpoint returns details of a specific deed based on the unique deed reference.\nThe response includes the Title Number, Property information, Borrower(s) information and deed information.
+        /// The Deed endpoint returns details of a specific deed based on the unique deed reference. The response includes the Title Number, Property information, Borrower(s) information and deed information.
         /// </remarks>
         /// <param name="deedReference">Unique reference of the deed.</param>
         /// <returns>OperativeDeed</returns>
         System.Threading.Tasks.Task<OperativeDeed> DeedDeedReferenceGetAsync (string deedReference);
+        
+        /// <summary>
+        /// Deed Update
+        /// </summary>
+        /// <remarks>
+        /// The post Deed endpoint creates a new deed based on the JSON provide. The reponse will return a URL that can retrieve the created deed. The response includes the Title Number, Property information, Borrower(s) information and deed information.
+        /// </remarks>
+        /// <param name="deedReference">Unique reference of the deed.</param>
+        /// <param name="body"></param>
+        /// <returns>string</returns>
+        string DeedDeedReferencePut (string deedReference, DeedApplication body);
+  
+        /// <summary>
+        /// Deed Update
+        /// </summary>
+        /// <remarks>
+        /// The post Deed endpoint creates a new deed based on the JSON provide. The reponse will return a URL that can retrieve the created deed. The response includes the Title Number, Property information, Borrower(s) information and deed information.
+        /// </remarks>
+        /// <param name="deedReference">Unique reference of the deed.</param>
+        /// <param name="body"></param>
+        /// <returns>string</returns>
+        System.Threading.Tasks.Task<string> DeedDeedReferencePutAsync (string deedReference, DeedApplication body);
         
     }
   
@@ -90,7 +112,7 @@ namespace IO.Swagger.Api
     
         
         /// <summary>
-        /// Deed The Deed endpoint returns details of a specific deed based on the unique deed reference.\nThe response includes the Title Number, Property information, Borrower(s) information and deed information.
+        /// Deed The Deed endpoint returns details of a specific deed based on the unique deed reference. The response includes the Title Number, Property information, Borrower(s) information and deed information.
         /// </summary>
         /// <param name="deedReference">Unique reference of the deed.</param> 
         /// <returns>OperativeDeed</returns>            
@@ -143,7 +165,7 @@ namespace IO.Swagger.Api
         }
     
         /// <summary>
-        /// Deed The Deed endpoint returns details of a specific deed based on the unique deed reference.\nThe response includes the Title Number, Property information, Borrower(s) information and deed information.
+        /// Deed The Deed endpoint returns details of a specific deed based on the unique deed reference. The response includes the Title Number, Property information, Borrower(s) information and deed information.
         /// </summary>
         /// <param name="deedReference">Unique reference of the deed.</param>
         /// <returns>OperativeDeed</returns>
@@ -189,6 +211,117 @@ namespace IO.Swagger.Api
                 throw new ApiException ((int)response.StatusCode, "Error calling DeedDeedReferenceGet: " + response.Content, response.Content);
 
             return (OperativeDeed) ApiClient.Deserialize(response, typeof(OperativeDeed));
+        }
+        
+        /// <summary>
+        /// Deed Update The post Deed endpoint creates a new deed based on the JSON provide. The reponse will return a URL that can retrieve the created deed. The response includes the Title Number, Property information, Borrower(s) information and deed information.
+        /// </summary>
+        /// <param name="deedReference">Unique reference of the deed.</param> 
+        /// <param name="body"></param> 
+        /// <returns>string</returns>            
+        public string DeedDeedReferencePut (string deedReference, DeedApplication body)
+        {
+            
+            // verify the required parameter 'deedReference' is set
+            if (deedReference == null) throw new ApiException(400, "Missing required parameter 'deedReference' when calling DeedDeedReferencePut");
+            
+            // verify the required parameter 'body' is set
+            if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling DeedDeedReferencePut");
+            
+    
+            var path_ = "/deed/{deed_reference}";
+    
+            var pathParams = new Dictionary<String, String>();
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+
+            // to determine the Accept header
+            String[] http_header_accepts = new String[] {
+                "application/json"
+            };
+            String http_header_accept = ApiClient.SelectHeaderAccept(http_header_accepts);
+            if (http_header_accept != null)
+                headerParams.Add("Accept", ApiClient.SelectHeaderAccept(http_header_accepts));
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            pathParams.Add("format", "json");
+            if (deedReference != null) pathParams.Add("deed_reference", ApiClient.ParameterToString(deedReference)); // path parameter
+            
+            
+            
+            
+            postBody = ApiClient.Serialize(body); // http body (model) parameter
+            
+    
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path_, Method.PUT, queryParams, postBody, headerParams, formParams, fileParams, pathParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling DeedDeedReferencePut: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling DeedDeedReferencePut: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (string) ApiClient.Deserialize(response, typeof(string));
+        }
+    
+        /// <summary>
+        /// Deed Update The post Deed endpoint creates a new deed based on the JSON provide. The reponse will return a URL that can retrieve the created deed. The response includes the Title Number, Property information, Borrower(s) information and deed information.
+        /// </summary>
+        /// <param name="deedReference">Unique reference of the deed.</param>
+        /// <param name="body"></param>
+        /// <returns>string</returns>
+        public async System.Threading.Tasks.Task<string> DeedDeedReferencePutAsync (string deedReference, DeedApplication body)
+        {
+            // verify the required parameter 'deedReference' is set
+            if (deedReference == null) throw new ApiException(400, "Missing required parameter 'deedReference' when calling DeedDeedReferencePut");
+            // verify the required parameter 'body' is set
+            if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling DeedDeedReferencePut");
+            
+    
+            var path_ = "/deed/{deed_reference}";
+    
+            var pathParams = new Dictionary<String, String>();
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+
+            // to determine the Accept header
+            String[] http_header_accepts = new String[] {
+                "application/json"
+            };
+            String http_header_accept = ApiClient.SelectHeaderAccept(http_header_accepts);
+            if (http_header_accept != null)
+                headerParams.Add("Accept", ApiClient.SelectHeaderAccept(http_header_accepts));
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            pathParams.Add("format", "json");
+            if (deedReference != null) pathParams.Add("deed_reference", ApiClient.ParameterToString(deedReference)); // path parameter
+            
+            
+            
+            
+            postBody = ApiClient.Serialize(body); // http body (model) parameter
+            
+    
+            // authentication setting, if any
+            String[] authSettings = new String[] {  };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) await ApiClient.CallApiAsync(path_, Method.PUT, queryParams, postBody, headerParams, formParams, fileParams, pathParams, authSettings);
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling DeedDeedReferencePut: " + response.Content, response.Content);
+
+            return (string) ApiClient.Deserialize(response, typeof(string));
         }
         
     }

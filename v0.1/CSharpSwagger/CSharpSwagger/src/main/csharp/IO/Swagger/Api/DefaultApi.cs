@@ -133,8 +133,8 @@ namespace IO.Swagger.Api
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path_, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, pathParams, authSettings);
-            
-			if (((int)response.StatusCode) >= 400)
+    
+            if (((int)response.StatusCode) >= 400)
                 throw new ApiException ((int)response.StatusCode, "Error calling AddDeed: " + response.Content, response.Content);
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling AddDeed: " + response.ErrorMessage, response.ErrorMessage);
