@@ -3,15 +3,26 @@ using IO.Swagger.Api;
 using IO.Swagger.Client;
 using IO.Swagger.Model;
 using Newtonsoft.Json;
+using RestSharp;
+using System.Security.Cryptography.X509Certificates;
+using System.Collections.Generic;
+using System.Net;
 
 namespace CSharpSwagger
 {
 	class MainClass
 	{
-		static ApiClient client = new ApiClient("http://192.168.250.28:5003/");
+		static ApiClient client = new ApiClient("https://uatbusinessgateway.landregistry.gov.uk/sign-my-mortgage");
 
 		public static void Main (string[] args)
 		{
+			ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+
+			X509Certificate2 certificate = new X509Certificate2("./dm-gateway.pfx", "password");
+			RestClient restClient = client.RestClient;
+			restClient.ClientCertificates = new X509CertificateCollection();
+			restClient.ClientCertificates.Add (certificate);
+
 			// Give the deed a Title Number and MdRef
 			string titleNumber = "DT567568";
 			string mdRef = "e-MD12344";

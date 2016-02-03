@@ -54,6 +54,7 @@ namespace IO.Swagger.Client
                 throw new ArgumentException("basePath cannot be empty");
 
             RestClient = new RestClient(basePath);
+
             Configuration = Configuration.Default;
         }
 
