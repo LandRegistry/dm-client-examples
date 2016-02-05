@@ -12,7 +12,7 @@ namespace CSharpSwagger
 {
 	class MainClass
 	{
-		static ApiClient client = new ApiClient("http://dm-api-test-hub.herokuapp.com/");
+		static ApiClient client = new ApiClient("http://52.28.236.232:5003");
 
 		public static void Main (string[] args)
 		{
