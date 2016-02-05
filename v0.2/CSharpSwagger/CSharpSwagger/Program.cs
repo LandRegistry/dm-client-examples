@@ -12,16 +12,20 @@ namespace CSharpSwagger
 {
 	class MainClass
 	{
-		static ApiClient client = new ApiClient("https://uatbusinessgateway.landregistry.gov.uk/sign-my-mortgage");
+		static ApiClient client = new ApiClient("http://dm-api-test-hub.herokuapp.com/");
 
 		public static void Main (string[] args)
 		{
 			ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
 
-			X509Certificate2 certificate = new X509Certificate2("./dm-gateway.pfx", "password");
-			RestClient restClient = client.RestClient;
-			restClient.ClientCertificates = new X509CertificateCollection();
-			restClient.ClientCertificates.Add (certificate);
+			if (args.Length >= 0 && args[0].ToUpper() == "TRUE") {
+				// Copy your security certificate into the bin/debug directory
+				X509Certificate2 certificate = new X509Certificate2("./dm-gateway.pfx", "password");
+				RestClient restClient = client.RestClient;
+				restClient.ClientCertificates = new X509CertificateCollection();
+				restClient.ClientCertificates.Add (certificate);
+			}
+
 
 			// Give the deed a Title Number and MdRef
 			string titleNumber = "DT567568";
