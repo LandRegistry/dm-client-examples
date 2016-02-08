@@ -32,7 +32,7 @@ namespace CSharpSwagger
 			string mdRef = "e-MD12344";
 			string property_address = "30 the gardens, the city, post cde";
 			string identity_checked = "Y";
-				
+
 			// create at least one borrower
 			PrivateIndividualName borrower = new PrivateIndividualName ();
 			borrower.Forename = "Paul";
@@ -65,8 +65,8 @@ namespace CSharpSwagger
 			return operativeDeed;
 		}
 
-		private static string PostDeed(string titleNumber, string mdRef, Borrowers borrowerList, 
-			string property_address, string identity_checked) {
+		private static string PostDeed(string titleNumber, string mdRef, Borrowers borrowerList,
+		                               string property_address, string identity_checked) {
 			DefaultApi deedPost = new DefaultApi(new Configuration(client));
 			DeedApplication deedApp = new DeedApplication();
 
