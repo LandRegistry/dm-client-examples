@@ -2,6 +2,6 @@
 bin/
 obj/
 *.userprefs
-
+.DS_Store
 ### NuGet ###
 packages
