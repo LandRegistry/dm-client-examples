@@ -44,28 +44,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Api\DeedApi.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Api\DefaultApi.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Client\ApiClient.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Client\ApiException.cs" />
+    <Compile Include="src\main\csharp\IO\Swagger\Client\ApiResponse.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Client\Configuration.cs" />
+    <Compile Include="src\main\csharp\IO\Swagger\Model\AdditionalProvisions.cs" />
+    <Compile Include="src\main\csharp\IO\Swagger\Model\AdditionalProvisionsInner.cs" />
+    <Compile Include="src\main\csharp\IO\Swagger\Model\Borrower.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Model\Borrowers.cs" />
+    <Compile Include="src\main\csharp\IO\Swagger\Model\ChargeClause.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Model\DeedApplication.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Model\Error.cs" />
+    <Compile Include="src\main\csharp\IO\Swagger\Model\Lender.cs" />
+    <Compile Include="src\main\csharp\IO\Swagger\Model\OpBorrowers.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Model\OperativeDeed.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Model\OperativeDeedDeed.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Model\PrivateIndividualName.cs" />
-    <Compile Include="src\main\csharp\IO\Swagger\Client\ApiResponse.cs" />
-    <Compile Include="src\main\csharp\IO\Swagger\Model\AdditionalProvisions.cs" />
-    <Compile Include="src\main\csharp\IO\Swagger\Model\ChargeClause.cs" />
-    <Compile Include="src\main\csharp\IO\Swagger\Model\AdditionalProvisionsInner.cs" />
-    <Compile Include="src\main\csharp\IO\Swagger\Model\Lender.cs" />
-    <Compile Include="src\main\csharp\IO\Swagger\Model\Borrower.cs" />
+    <Compile Include="src\main\csharp\IO\Swagger\Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="src\.DS_Store" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 </Project>

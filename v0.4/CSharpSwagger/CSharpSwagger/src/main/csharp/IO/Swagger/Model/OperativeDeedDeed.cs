@@ -27,20 +27,20 @@ namespace IO.Swagger.Model
         /// <param name="PropertyAddress">The address of property that the deed relates. This should be supplied in a comma separated format e.g. 30 wakefield rd, plymouth, PL6 3WA.</param>
         /// <param name="AdditionalProvisions">AdditionalProvisions.</param>
         /// <param name="MdRef">Land Registry assigned number for a Mortgage Deed (MD). If you wish to use an existing MD reference please prefix it with e- to comply with our system (eg e-MD12345).</param>
-        /// <param name="Borrowers">Borrowers.</param>
         /// <param name="EffectiveClause">Text to display the make effective clause.</param>
         /// <param name="ChargeClause">ChargeClause.</param>
+        /// <param name="OpBorrowers">OpBorrowers.</param>
 
-        public OperativeDeedDeed(string TitleNumber = null, Lender Lender = null, string PropertyAddress = null, AdditionalProvisions AdditionalProvisions = null, string MdRef = null, Borrowers Borrowers = null, string EffectiveClause = null, ChargeClause ChargeClause = null)
+        public OperativeDeedDeed(string TitleNumber = null, Lender Lender = null, string PropertyAddress = null, AdditionalProvisions AdditionalProvisions = null, string MdRef = null, string EffectiveClause = null, ChargeClause ChargeClause = null, List<OpBorrowers> OpBorrowers = null)
         {
             this.TitleNumber = TitleNumber;
             this.Lender = Lender;
             this.PropertyAddress = PropertyAddress;
             this.AdditionalProvisions = AdditionalProvisions;
             this.MdRef = MdRef;
-            this.Borrowers = Borrowers;
             this.EffectiveClause = EffectiveClause;
             this.ChargeClause = ChargeClause;
+            this.OpBorrowers = OpBorrowers;
             
         }
         
@@ -79,12 +79,6 @@ namespace IO.Swagger.Model
         public string MdRef { get; set; }
     
         /// <summary>
-        /// Gets or Sets Borrowers
-        /// </summary>
-        [DataMember(Name="borrowers", EmitDefaultValue=false)]
-        public Borrowers Borrowers { get; set; }
-    
-        /// <summary>
         /// Text to display the make effective clause
         /// </summary>
         /// <value>Text to display the make effective clause</value>
@@ -96,6 +90,12 @@ namespace IO.Swagger.Model
         /// </summary>
         [DataMember(Name="charge_clause", EmitDefaultValue=false)]
         public ChargeClause ChargeClause { get; set; }
+    
+        /// <summary>
+        /// Gets or Sets OpBorrowers
+        /// </summary>
+        [DataMember(Name="OpBorrowers", EmitDefaultValue=false)]
+        public List<OpBorrowers> OpBorrowers { get; set; }
     
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,9 +110,9 @@ namespace IO.Swagger.Model
             sb.Append("  PropertyAddress: ").Append(PropertyAddress).Append("\n");
             sb.Append("  AdditionalProvisions: ").Append(AdditionalProvisions).Append("\n");
             sb.Append("  MdRef: ").Append(MdRef).Append("\n");
-            sb.Append("  Borrowers: ").Append(Borrowers).Append("\n");
             sb.Append("  EffectiveClause: ").Append(EffectiveClause).Append("\n");
             sb.Append("  ChargeClause: ").Append(ChargeClause).Append("\n");
+            sb.Append("  OpBorrowers: ").Append(OpBorrowers).Append("\n");
             
             sb.Append("}\n");
             return sb.ToString();
@@ -176,11 +176,6 @@ namespace IO.Swagger.Model
                     this.MdRef.Equals(other.MdRef)
                 ) && 
                 (
-                    this.Borrowers == other.Borrowers ||
-                    this.Borrowers != null &&
-                    this.Borrowers.Equals(other.Borrowers)
-                ) && 
-                (
                     this.EffectiveClause == other.EffectiveClause ||
                     this.EffectiveClause != null &&
                     this.EffectiveClause.Equals(other.EffectiveClause)
@@ -189,6 +184,11 @@ namespace IO.Swagger.Model
                     this.ChargeClause == other.ChargeClause ||
                     this.ChargeClause != null &&
                     this.ChargeClause.Equals(other.ChargeClause)
+                ) && 
+                (
+                    this.OpBorrowers == other.OpBorrowers ||
+                    this.OpBorrowers != null &&
+                    this.OpBorrowers.SequenceEqual(other.OpBorrowers)
                 );
         }
 
@@ -219,14 +219,14 @@ namespace IO.Swagger.Model
                 if (this.MdRef != null)
                     hash = hash * 59 + this.MdRef.GetHashCode();
                 
-                if (this.Borrowers != null)
-                    hash = hash * 59 + this.Borrowers.GetHashCode();
-                
                 if (this.EffectiveClause != null)
                     hash = hash * 59 + this.EffectiveClause.GetHashCode();
                 
                 if (this.ChargeClause != null)
                     hash = hash * 59 + this.ChargeClause.GetHashCode();
+                
+                if (this.OpBorrowers != null)
+                    hash = hash * 59 + this.OpBorrowers.GetHashCode();
                 
                 return hash;
             }

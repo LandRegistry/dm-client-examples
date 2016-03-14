@@ -15,15 +15,15 @@ namespace IO.Swagger.Model
     /// 
     /// </summary>
     [DataContract]
-    public partial class Borrowers : List<PrivateIndividualName>,  IEquatable<Borrowers>
+    public partial class OpBorrowers : List<Borrower>,  IEquatable<OpBorrowers>
     { 
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="Borrowers" /> class.
-        /// Initializes a new instance of the <see cref="Borrowers" />class.
+        /// Initializes a new instance of the <see cref="OpBorrowers" /> class.
+        /// Initializes a new instance of the <see cref="OpBorrowers" />class.
         /// </summary>
 
-        public Borrowers()
+        public OpBorrowers()
         {
             
         }
@@ -36,7 +36,7 @@ namespace IO.Swagger.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Borrowers {\n");
+            sb.Append("class OpBorrowers {\n");
             
             sb.Append("}\n");
             return sb.ToString();
@@ -59,15 +59,15 @@ namespace IO.Swagger.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Borrowers);
+            return this.Equals(obj as OpBorrowers);
         }
 
         /// <summary>
-        /// Returns true if Borrowers instances are equal
+        /// Returns true if OpBorrowers instances are equal
         /// </summary>
-        /// <param name="other">Instance of Borrowers to be compared</param>
+        /// <param name="other">Instance of OpBorrowers to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Borrowers other)
+        public bool Equals(OpBorrowers other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

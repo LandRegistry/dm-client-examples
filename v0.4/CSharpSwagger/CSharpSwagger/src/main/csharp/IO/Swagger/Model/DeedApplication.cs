@@ -28,7 +28,7 @@ namespace IO.Swagger.Model
         /// <param name="IdentityChecked">IdentityChecked (required).</param>
         /// <param name="PropertyAddress">The address of property that the deed relates. This should be supplied in a comma separated format e.g. 30 wakefield rd, plymouth, PL6 3WA (required).</param>
 
-        public DeedApplication(string TitleNumber = null, List<PrivateIndividualName> Borrowers = null, string MdRef = null, string IdentityChecked = null, string PropertyAddress = null)
+        public DeedApplication(string TitleNumber = null, Borrowers Borrowers = null, string MdRef = null, string IdentityChecked = null, string PropertyAddress = null)
         {
             // to ensure "TitleNumber" is required (not null)
             if (TitleNumber == null)
@@ -89,7 +89,7 @@ namespace IO.Swagger.Model
         /// Gets or Sets Borrowers
         /// </summary>
         [DataMember(Name="borrowers", EmitDefaultValue=false)]
-        public List<PrivateIndividualName> Borrowers { get; set; }
+        public Borrowers Borrowers { get; set; }
     
         /// <summary>
         /// Gets or Sets MdRef
@@ -168,7 +168,7 @@ namespace IO.Swagger.Model
                 (
                     this.Borrowers == other.Borrowers ||
                     this.Borrowers != null &&
-                    this.Borrowers.SequenceEqual(other.Borrowers)
+                    this.Borrowers.Equals(other.Borrowers)
                 ) && 
                 (
                     this.MdRef == other.MdRef ||

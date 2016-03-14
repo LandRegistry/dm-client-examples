@@ -56,7 +56,7 @@ namespace CSharpSwagger
 			Console.WriteLine("Retrieving Newly Posted Deed");
 
 			OperativeDeed operativeDeed = deedGet.DeedDeedReferenceGet(token);
-			Console.Write(operativeDeed);
+			Console.Write(operativeDeed.ToJson());
 
 			return operativeDeed;
 		}
