@@ -15,7 +15,7 @@ namespace IO.Swagger.Model
     /// 
     /// </summary>
     [DataContract]
-    public partial class Borrowers : List<Borrower>,  IEquatable<Borrowers>
+	public partial class Borrowers : List<PrivateIndividualName>,  IEquatable<Borrowers>
     { 
     
         /// <summary>

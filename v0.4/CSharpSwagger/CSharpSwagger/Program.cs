@@ -12,7 +12,7 @@ namespace CSharpSwagger
 {
 	class MainClass
 	{
-		static ApiClient client = new ApiClient("https://bgtest.landregistry.gov.uk/api/deeds");
+		static ApiClient client = new ApiClient("http://10.10.10.10:9090/webseal/");
 
 		public static void Main (string[] args)
 		{
@@ -34,20 +34,15 @@ namespace CSharpSwagger
 			string identity_checked = "Y";
 
 			// create at least one borrower
-			PrivateIndividualName borrower = new PrivateIndividualName ();
-			borrower.Forename = "Paul";
-			borrower.MiddleName = "M";
-			borrower.Surname = "Smythe";
-			borrower.Gender = "Male";
-			borrower.Address = "2 The Street, Plymouth, PL1 2PP";
-			borrower.Dob = "01/10/1976";
-			borrower.PhoneNumber = "07502154062";
+			PrivateIndividualName borrower = new PrivateIndividualName ("Paul","M","Smythe","01/10/1976",PrivateIndividualName.GenderEnum.Male,"07503254062","2 The Street, Plymouth, PL1 2PP");
 
 			// add the borrower(s) to a list of borrowers (min 1)
 			Borrowers borrowerList = new Borrowers();
 			borrowerList.Add(borrower);
 
-			string deedToken = PostDeed (titleNumber, mdRef, borrowerList, property_address, identity_checked);
+			string deedToken = PostDeed (titleNumber, mdRef, borrowerList, identity_checked, property_address);
+
+			Console.WriteLine ("POST Complete - attempting GET");
 
 			GetDeed(deedToken);
 
@@ -59,8 +54,9 @@ namespace CSharpSwagger
 			DeedApi deedGet = new DeedApi(new Configuration(client));
 
 			Console.WriteLine("Retrieving Newly Posted Deed");
+
 			OperativeDeed operativeDeed = deedGet.DeedDeedReferenceGet(token);
-			Console.Write(operativeDeed.ToJson());
+			Console.Write(operativeDeed);
 
 			return operativeDeed;
 		}
@@ -68,13 +64,14 @@ namespace CSharpSwagger
 		private static string PostDeed(string titleNumber, string mdRef, Borrowers borrowerList,
 		                               string property_address, string identity_checked) {
 			DefaultApi deedPost = new DefaultApi(new Configuration(client));
-			DeedApplication deedApp = new DeedApplication();
+			DeedApplication deedApp = new DeedApplication(titleNumber,borrowerList,mdRef,property_address,identity_checked);
 
-			deedApp.TitleNumber = titleNumber;
-			deedApp.MdRef = mdRef;
-			deedApp.PropertyAddress = property_address;
-			deedApp.IdentityChecked = identity_checked;
+//			deedApp.TitleNumber = titleNumber;
+//			deedApp.MdRef = mdRef;
+//			deedApp.PropertyAddress = property_address;
+//			deedApp.IdentityChecked = identity_checked;
 
+//			
 			deedApp.Borrowers = borrowerList;
 
 			Console.WriteLine ("Sending POST to API");

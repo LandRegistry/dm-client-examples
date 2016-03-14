@@ -61,6 +61,7 @@
     <Compile Include="src\main\csharp\IO\Swagger\Model\ChargeClause.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Model\AdditionalProvisionsInner.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Model\Lender.cs" />
+    <Compile Include="src\main\csharp\IO\Swagger\Model\Borrower.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
