@@ -25,10 +25,10 @@ namespace IO.Swagger.Model
         /// <param name="Forename">Forename (required).</param>
         /// <param name="MiddleName">MiddleName.</param>
         /// <param name="Surname">Surname (required).</param>
-        /// <param name="BorrowerToken">BorrowerToken (required).</param>
+        /// <param name="Token">Token (required).</param>
         /// <param name="Id">Id (required).</param>
 
-        public Borrower(string Forename = null, string MiddleName = null, string Surname = null, string BorrowerToken = null, string Id = null)
+        public Borrower(string Forename = null, string MiddleName = null, string Surname = null, string Token = null, string Id = null)
         {
             // to ensure "Forename" is required (not null)
             if (Forename == null)
@@ -48,14 +48,14 @@ namespace IO.Swagger.Model
             {
                 this.Surname = Surname;
             }
-            // to ensure "BorrowerToken" is required (not null)
-            if (BorrowerToken == null)
+            // to ensure "Token" is required (not null)
+            if (Token == null)
             {
-                throw new InvalidDataException("BorrowerToken is a required property for Borrower and cannot be null");
+                throw new InvalidDataException("Token is a required property for Borrower and cannot be null");
             }
             else
             {
-                this.BorrowerToken = BorrowerToken;
+                this.Token = Token;
             }
             // to ensure "Id" is required (not null)
             if (Id == null)
@@ -90,10 +90,10 @@ namespace IO.Swagger.Model
         public string Surname { get; set; }
     
         /// <summary>
-        /// Gets or Sets BorrowerToken
+        /// Gets or Sets Token
         /// </summary>
-        [DataMember(Name="borrower_token", EmitDefaultValue=false)]
-        public string BorrowerToken { get; set; }
+        [DataMember(Name="token", EmitDefaultValue=false)]
+        public string Token { get; set; }
     
         /// <summary>
         /// Gets or Sets Id
@@ -112,7 +112,7 @@ namespace IO.Swagger.Model
             sb.Append("  Forename: ").Append(Forename).Append("\n");
             sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
             sb.Append("  Surname: ").Append(Surname).Append("\n");
-            sb.Append("  BorrowerToken: ").Append(BorrowerToken).Append("\n");
+            sb.Append("  Token: ").Append(Token).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             
             sb.Append("}\n");
@@ -167,9 +167,9 @@ namespace IO.Swagger.Model
                     this.Surname.Equals(other.Surname)
                 ) && 
                 (
-                    this.BorrowerToken == other.BorrowerToken ||
-                    this.BorrowerToken != null &&
-                    this.BorrowerToken.Equals(other.BorrowerToken)
+                    this.Token == other.Token ||
+                    this.Token != null &&
+                    this.Token.Equals(other.Token)
                 ) && 
                 (
                     this.Id == other.Id ||
@@ -199,8 +199,8 @@ namespace IO.Swagger.Model
                 if (this.Surname != null)
                     hash = hash * 59 + this.Surname.GetHashCode();
                 
-                if (this.BorrowerToken != null)
-                    hash = hash * 59 + this.BorrowerToken.GetHashCode();
+                if (this.Token != null)
+                    hash = hash * 59 + this.Token.GetHashCode();
                 
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
