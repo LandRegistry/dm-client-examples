@@ -12,7 +12,7 @@ namespace CSharpSwagger
 {
 	class MainClass
 	{
-		static ApiClient client = new ApiClient("http://bgtest.landregistry.gov.uk/api/deeds/");
+		static ApiClient client = new ApiClient("https://bgtest.landregistry.gov.uk/api/deeds/");
 
 		public static void Main (string[] args)
 		{
@@ -66,12 +66,6 @@ namespace CSharpSwagger
 			DefaultApi deedPost = new DefaultApi(new Configuration(client));
 			DeedApplication deedApp = new DeedApplication(titleNumber,borrowerList,mdRef,property_address,identity_checked);
 
-//			deedApp.TitleNumber = titleNumber;
-//			deedApp.MdRef = mdRef;
-//			deedApp.PropertyAddress = property_address;
-//			deedApp.IdentityChecked = identity_checked;
-
-//			
 			deedApp.Borrowers = borrowerList;
 
 			Console.WriteLine ("Sending POST to API");
