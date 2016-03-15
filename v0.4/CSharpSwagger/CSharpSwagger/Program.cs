@@ -12,7 +12,7 @@ namespace CSharpSwagger
 {
 	class MainClass
 	{
-		static ApiClient client = new ApiClient("http://10.10.10.10:9090/webseal/");
+		static ApiClient client = new ApiClient("http://bgtest.landregistry.gov.uk/api/deeds/");
 
 		public static void Main (string[] args)
 		{
