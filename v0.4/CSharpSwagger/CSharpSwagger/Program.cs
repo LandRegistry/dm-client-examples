@@ -18,7 +18,7 @@ namespace CSharpSwagger
 		{
 			ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
 
-			if (args.Length >= 0 && args[0].ToUpper() == "TRUE") {
+			if (args.Length > 0 && args[0].ToUpper() == "TRUE") {
 				// Copy your security certificate into the bin/debug directory
 				X509Certificate2 certificate = new X509Certificate2("./dm-gateway.pfx", "password");
 				RestClient restClient = client.RestClient;
