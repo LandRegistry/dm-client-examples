@@ -44,18 +44,19 @@ namespace CSharpSwagger
 
 			Console.WriteLine ("POST Complete - attempting GET");
 
-			GetDeed(deedToken);
+			GetDeed(deedToken, "application/json");
 
 			Console.WriteLine("Process Complete");
 			Console.ReadLine();
 		}
 
-		private static OperativeDeed GetDeed(string token){
+		private static OperativeDeed GetDeed(string token, string accept){
 			DeedApi deedGet = new DeedApi(new Configuration(client));
 
 			Console.WriteLine("Retrieving Newly Posted Deed");
 
-			OperativeDeed operativeDeed = deedGet.DeedDeedReferenceGet(token, "json\application");
+			OperativeDeed operativeDeed = deedGet.DeedDeedReferenceGet(token, accept);
+
 			Console.Write(operativeDeed.ToJson());
 
 			return operativeDeed;
