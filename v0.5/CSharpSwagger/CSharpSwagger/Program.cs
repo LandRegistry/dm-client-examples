@@ -28,13 +28,13 @@ namespace CSharpSwagger
 
 
 			// Give the deed a Title Number and MdRef
-			string titleNumber = "DT567568";
+			string titleNumber = "CYM123457";
 			string mdRef = "e-MD12344";
 			string property_address = "30 the gardens, the city, post cde";
 			string identity_checked = "Y";
 
 			// create at least one borrower
-			PrivateIndividualName borrower = new PrivateIndividualName ("Paul","M","Smythe","01/10/1976",PrivateIndividualName.GenderEnum.Male,"07503254062","2 The Street, Plymouth, PL1 2PP");
+			PrivateIndividualName borrower = new PrivateIndividualName ("Ann",null,"Smith","01/10/1976",PrivateIndividualName.GenderEnum.Male,"07503254062","2 The Street, Plymouth, PL1 2PP");
 
 			// add the borrower(s) to a list of borrowers (min 1)
 			Borrowers borrowerList = new Borrowers();
