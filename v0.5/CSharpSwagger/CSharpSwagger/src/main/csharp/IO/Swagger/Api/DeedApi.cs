@@ -251,7 +251,7 @@ namespace IO.Swagger.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (deedReference != null) localVarPathParams.Add("deed_reference", Configuration.ApiClient.ParameterToString(deedReference)); // path parameter
-            if (accept != null) localVarHeaderParams.Add("Accept", Configuration.ApiClient.ParameterToString(accept)); // header parameter
+            //if (accept != null) localVarHeaderParams.Add("Accept", Configuration.ApiClient.ParameterToString(accept)); // header parameter
 
 
             // make the HTTP request

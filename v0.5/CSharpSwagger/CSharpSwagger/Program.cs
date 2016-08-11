@@ -44,6 +44,9 @@ namespace CSharpSwagger
 
 			Console.WriteLine ("POST Complete - attempting GET");
 
+			//We Retrieve the deed with the "Application/json" header in order to show in console. 
+			//Replacing this with application/pdf will result in a PDF being returned.
+
 			GetDeed(deedToken, "application/json");
 
 			Console.WriteLine("Process Complete");
