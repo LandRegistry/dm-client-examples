@@ -26,75 +26,70 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using IO.Swagger.Client;
-using IO.Swagger.Model;
 
 namespace IO.Swagger.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IDefaultApi : IApiAccessor
+    public interface IRetrieveAllSignedDeedsApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Deed
+        /// Retrieves ALL-SIGNED deed(s).
         /// </summary>
         /// <remarks>
-        /// The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// The Retrieve Signed endpoint checks the service for all deeds that have been completely signed by the borrowers or borrower. Only the deeds associated with the conveyancer are returned. The response is a json array output containing the deed references e.g. 93e806ab-f1bc-4671-be3e-4cc68b21b77a. 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
         /// <returns>string</returns>
-        string AddDeed (DeedApplication body);
+        string DeedRetrieveSignedGet ();
 
         /// <summary>
-        /// Deed
+        /// Retrieves ALL-SIGNED deed(s).
         /// </summary>
         /// <remarks>
-        /// The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// The Retrieve Signed endpoint checks the service for all deeds that have been completely signed by the borrowers or borrower. Only the deeds associated with the conveyancer are returned. The response is a json array output containing the deed references e.g. 93e806ab-f1bc-4671-be3e-4cc68b21b77a. 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> AddDeedWithHttpInfo (DeedApplication body);
+        ApiResponse<string> DeedRetrieveSignedGetWithHttpInfo ();
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Deed
+        /// Retrieves ALL-SIGNED deed(s).
         /// </summary>
         /// <remarks>
-        /// The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// The Retrieve Signed endpoint checks the service for all deeds that have been completely signed by the borrowers or borrower. Only the deeds associated with the conveyancer are returned. The response is a json array output containing the deed references e.g. 93e806ab-f1bc-4671-be3e-4cc68b21b77a. 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> AddDeedAsync (DeedApplication body);
+        System.Threading.Tasks.Task<string> DeedRetrieveSignedGetAsync ();
 
         /// <summary>
-        /// Deed
+        /// Retrieves ALL-SIGNED deed(s).
         /// </summary>
         /// <remarks>
-        /// The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// The Retrieve Signed endpoint checks the service for all deeds that have been completely signed by the borrowers or borrower. Only the deeds associated with the conveyancer are returned. The response is a json array output containing the deed references e.g. 93e806ab-f1bc-4671-be3e-4cc68b21b77a. 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> AddDeedAsyncWithHttpInfo (DeedApplication body);
+        System.Threading.Tasks.Task<ApiResponse<string>> DeedRetrieveSignedGetAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class DefaultApi : IDefaultApi
+    public partial class RetrieveAllSignedDeedsApi : IRetrieveAllSignedDeedsApi
     {
         private IO.Swagger.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DefaultApi"/> class.
+        /// Initializes a new instance of the <see cref="RetrieveAllSignedDeedsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public DefaultApi(String basePath)
+        public RetrieveAllSignedDeedsApi(String basePath)
         {
             this.Configuration = new Configuration(new ApiClient(basePath));
 
@@ -108,12 +103,12 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DefaultApi"/> class
+        /// Initializes a new instance of the <see cref="RetrieveAllSignedDeedsApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public DefaultApi(Configuration configuration = null)
+        public RetrieveAllSignedDeedsApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Configuration.Default;
@@ -193,30 +188,25 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Deed The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// Retrieves ALL-SIGNED deed(s). The Retrieve Signed endpoint checks the service for all deeds that have been completely signed by the borrowers or borrower. Only the deeds associated with the conveyancer are returned. The response is a json array output containing the deed references e.g. 93e806ab-f1bc-4671-be3e-4cc68b21b77a. 
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
         /// <returns>string</returns>
-        public string AddDeed (DeedApplication body)
+        public string DeedRetrieveSignedGet ()
         {
-             ApiResponse<string> localVarResponse = AddDeedWithHttpInfo(body);
+             ApiResponse<string> localVarResponse = DeedRetrieveSignedGetWithHttpInfo();
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Deed The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// Retrieves ALL-SIGNED deed(s). The Retrieve Signed endpoint checks the service for all deeds that have been completely signed by the borrowers or borrower. Only the deeds associated with the conveyancer are returned. The response is a json array output containing the deed references e.g. 93e806ab-f1bc-4671-be3e-4cc68b21b77a. 
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
         /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > AddDeedWithHttpInfo (DeedApplication body)
+        public ApiResponse< string > DeedRetrieveSignedGetWithHttpInfo ()
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling DefaultApi->AddDeed");
 
-            var localVarPath = "/deed/";
+            var localVarPath = "/deed/retrieve-signed";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -226,7 +216,6 @@ namespace IO.Swagger.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
-                "application/json"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -241,26 +230,18 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("AddDeed", localVarResponse);
+                Exception exception = ExceptionFactory("DeedRetrieveSignedGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -271,31 +252,26 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Deed The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// Retrieves ALL-SIGNED deed(s). The Retrieve Signed endpoint checks the service for all deeds that have been completely signed by the borrowers or borrower. Only the deeds associated with the conveyancer are returned. The response is a json array output containing the deed references e.g. 93e806ab-f1bc-4671-be3e-4cc68b21b77a. 
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> AddDeedAsync (DeedApplication body)
+        public async System.Threading.Tasks.Task<string> DeedRetrieveSignedGetAsync ()
         {
-             ApiResponse<string> localVarResponse = await AddDeedAsyncWithHttpInfo(body);
+             ApiResponse<string> localVarResponse = await DeedRetrieveSignedGetAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Deed The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// Retrieves ALL-SIGNED deed(s). The Retrieve Signed endpoint checks the service for all deeds that have been completely signed by the borrowers or borrower. Only the deeds associated with the conveyancer are returned. The response is a json array output containing the deed references e.g. 93e806ab-f1bc-4671-be3e-4cc68b21b77a. 
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> AddDeedAsyncWithHttpInfo (DeedApplication body)
+        public async System.Threading.Tasks.Task<ApiResponse<string>> DeedRetrieveSignedGetAsyncWithHttpInfo ()
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling DefaultApi->AddDeed");
 
-            var localVarPath = "/deed/";
+            var localVarPath = "/deed/retrieve-signed";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -305,7 +281,6 @@ namespace IO.Swagger.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
-                "application/json"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -320,26 +295,18 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("AddDeed", localVarResponse);
+                Exception exception = ExceptionFactory("DeedRetrieveSignedGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 

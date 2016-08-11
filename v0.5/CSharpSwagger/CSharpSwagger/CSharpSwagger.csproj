@@ -63,6 +63,10 @@
     <Compile Include="src\main\csharp\IO\Swagger\Properties\AssemblyInfo.cs" />
     <Compile Include="src\main\csharp\IO\Swagger\Model\OperativeDeedDeed.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="src\main\csharp\IO\Swagger\Api\MakeEffectiveApi.cs" />
+    <Compile Include="src\main\csharp\IO\Swagger\Api\RetrieveAllSignedDeedsApi.cs" />
+    <Compile Include="src\main\csharp\IO\Swagger\Client\ExceptionFactory.cs" />
+    <Compile Include="src\main\csharp\IO\Swagger\Client\IApiAccessor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

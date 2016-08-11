@@ -33,68 +33,68 @@ namespace IO.Swagger.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IDefaultApi : IApiAccessor
+    public interface IMakeEffectiveApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Deed
+        /// Make Effective
         /// </summary>
         /// <remarks>
-        /// The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// The Make Effective endpoint triggers the service to make a deed effective, dating it with the timestamp of when this call is made. The response includes the Title Number, Property information, Borrower(s) information and deed information, as well as the timestamp that is saved onto the deed. 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <returns>string</returns>
-        string AddDeed (DeedApplication body);
+        /// <param name="deedReference">Unique reference of the deed.</param>
+        /// <returns>OperativeDeed</returns>
+        OperativeDeed DeedDeedReferenceMakeEffectivePost (string deedReference);
 
         /// <summary>
-        /// Deed
+        /// Make Effective
         /// </summary>
         /// <remarks>
-        /// The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// The Make Effective endpoint triggers the service to make a deed effective, dating it with the timestamp of when this call is made. The response includes the Title Number, Property information, Borrower(s) information and deed information, as well as the timestamp that is saved onto the deed. 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> AddDeedWithHttpInfo (DeedApplication body);
+        /// <param name="deedReference">Unique reference of the deed.</param>
+        /// <returns>ApiResponse of OperativeDeed</returns>
+        ApiResponse<OperativeDeed> DeedDeedReferenceMakeEffectivePostWithHttpInfo (string deedReference);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Deed
+        /// Make Effective
         /// </summary>
         /// <remarks>
-        /// The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// The Make Effective endpoint triggers the service to make a deed effective, dating it with the timestamp of when this call is made. The response includes the Title Number, Property information, Borrower(s) information and deed information, as well as the timestamp that is saved onto the deed. 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> AddDeedAsync (DeedApplication body);
+        /// <param name="deedReference">Unique reference of the deed.</param>
+        /// <returns>Task of OperativeDeed</returns>
+        System.Threading.Tasks.Task<OperativeDeed> DeedDeedReferenceMakeEffectivePostAsync (string deedReference);
 
         /// <summary>
-        /// Deed
+        /// Make Effective
         /// </summary>
         /// <remarks>
-        /// The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// The Make Effective endpoint triggers the service to make a deed effective, dating it with the timestamp of when this call is made. The response includes the Title Number, Property information, Borrower(s) information and deed information, as well as the timestamp that is saved onto the deed. 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> AddDeedAsyncWithHttpInfo (DeedApplication body);
+        /// <param name="deedReference">Unique reference of the deed.</param>
+        /// <returns>Task of ApiResponse (OperativeDeed)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OperativeDeed>> DeedDeedReferenceMakeEffectivePostAsyncWithHttpInfo (string deedReference);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class DefaultApi : IDefaultApi
+    public partial class MakeEffectiveApi : IMakeEffectiveApi
     {
         private IO.Swagger.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DefaultApi"/> class.
+        /// Initializes a new instance of the <see cref="MakeEffectiveApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public DefaultApi(String basePath)
+        public MakeEffectiveApi(String basePath)
         {
             this.Configuration = new Configuration(new ApiClient(basePath));
 
@@ -108,12 +108,12 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DefaultApi"/> class
+        /// Initializes a new instance of the <see cref="MakeEffectiveApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public DefaultApi(Configuration configuration = null)
+        public MakeEffectiveApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Configuration.Default;
@@ -193,30 +193,30 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Deed The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// Make Effective The Make Effective endpoint triggers the service to make a deed effective, dating it with the timestamp of when this call is made. The response includes the Title Number, Property information, Borrower(s) information and deed information, as well as the timestamp that is saved onto the deed. 
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <returns>string</returns>
-        public string AddDeed (DeedApplication body)
+        /// <param name="deedReference">Unique reference of the deed.</param>
+        /// <returns>OperativeDeed</returns>
+        public OperativeDeed DeedDeedReferenceMakeEffectivePost (string deedReference)
         {
-             ApiResponse<string> localVarResponse = AddDeedWithHttpInfo(body);
+             ApiResponse<OperativeDeed> localVarResponse = DeedDeedReferenceMakeEffectivePostWithHttpInfo(deedReference);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Deed The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// Make Effective The Make Effective endpoint triggers the service to make a deed effective, dating it with the timestamp of when this call is made. The response includes the Title Number, Property information, Borrower(s) information and deed information, as well as the timestamp that is saved onto the deed. 
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > AddDeedWithHttpInfo (DeedApplication body)
+        /// <param name="deedReference">Unique reference of the deed.</param>
+        /// <returns>ApiResponse of OperativeDeed</returns>
+        public ApiResponse< OperativeDeed > DeedDeedReferenceMakeEffectivePostWithHttpInfo (string deedReference)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling DefaultApi->AddDeed");
+            // verify the required parameter 'deedReference' is set
+            if (deedReference == null)
+                throw new ApiException(400, "Missing required parameter 'deedReference' when calling MakeEffectiveApi->DeedDeedReferenceMakeEffectivePost");
 
-            var localVarPath = "/deed/";
+            var localVarPath = "/deed/{deed_reference}/make-effective";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -226,7 +226,6 @@ namespace IO.Swagger.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
-                "application/json"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -241,14 +240,7 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
+            if (deedReference != null) localVarPathParams.Add("deed_reference", Configuration.ApiClient.ParameterToString(deedReference)); // path parameter
 
 
             // make the HTTP request
@@ -260,42 +252,42 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("AddDeed", localVarResponse);
+                Exception exception = ExceptionFactory("DeedDeedReferenceMakeEffectivePost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            return new ApiResponse<OperativeDeed>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                (OperativeDeed) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OperativeDeed)));
             
         }
 
         /// <summary>
-        /// Deed The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// Make Effective The Make Effective endpoint triggers the service to make a deed effective, dating it with the timestamp of when this call is made. The response includes the Title Number, Property information, Borrower(s) information and deed information, as well as the timestamp that is saved onto the deed. 
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> AddDeedAsync (DeedApplication body)
+        /// <param name="deedReference">Unique reference of the deed.</param>
+        /// <returns>Task of OperativeDeed</returns>
+        public async System.Threading.Tasks.Task<OperativeDeed> DeedDeedReferenceMakeEffectivePostAsync (string deedReference)
         {
-             ApiResponse<string> localVarResponse = await AddDeedAsyncWithHttpInfo(body);
+             ApiResponse<OperativeDeed> localVarResponse = await DeedDeedReferenceMakeEffectivePostAsyncWithHttpInfo(deedReference);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Deed The post Deed endpoint creates a new deed based on the JSON provided.  The reponse will return a URL that can retrieve the created deed.   &gt; REQUIRED: Land Registry system requests Conveyancer to confirm that the Borrowers identity has been established in accordance with Section 111 of the Network Access Agreement.
+        /// Make Effective The Make Effective endpoint triggers the service to make a deed effective, dating it with the timestamp of when this call is made. The response includes the Title Number, Property information, Borrower(s) information and deed information, as well as the timestamp that is saved onto the deed. 
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> AddDeedAsyncWithHttpInfo (DeedApplication body)
+        /// <param name="deedReference">Unique reference of the deed.</param>
+        /// <returns>Task of ApiResponse (OperativeDeed)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OperativeDeed>> DeedDeedReferenceMakeEffectivePostAsyncWithHttpInfo (string deedReference)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling DefaultApi->AddDeed");
+            // verify the required parameter 'deedReference' is set
+            if (deedReference == null)
+                throw new ApiException(400, "Missing required parameter 'deedReference' when calling MakeEffectiveApi->DeedDeedReferenceMakeEffectivePost");
 
-            var localVarPath = "/deed/";
+            var localVarPath = "/deed/{deed_reference}/make-effective";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -305,7 +297,6 @@ namespace IO.Swagger.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
-                "application/json"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -320,14 +311,7 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
+            if (deedReference != null) localVarPathParams.Add("deed_reference", Configuration.ApiClient.ParameterToString(deedReference)); // path parameter
 
 
             // make the HTTP request
@@ -339,13 +323,13 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("AddDeed", localVarResponse);
+                Exception exception = ExceptionFactory("DeedDeedReferenceMakeEffectivePost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            return new ApiResponse<OperativeDeed>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                (OperativeDeed) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OperativeDeed)));
             
         }
 

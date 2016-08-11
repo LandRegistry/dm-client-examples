@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using IO.Swagger.Api;
 using IO.Swagger.Client;
 using IO.Swagger.Model;
 using Newtonsoft.Json;
 using RestSharp;
-using System.Security.Cryptography.X509Certificates;
-using System.Collections.Generic;
-using System.Net;
 
 namespace CSharpSwagger
 {
@@ -55,7 +55,7 @@ namespace CSharpSwagger
 
 			Console.WriteLine("Retrieving Newly Posted Deed");
 
-			OperativeDeed operativeDeed = deedGet.DeedDeedReferenceGet(token);
+			OperativeDeed operativeDeed = deedGet.DeedDeedReferenceGet(token, "application/json");
 			Console.Write(operativeDeed.ToJson());
 
 			return operativeDeed;
