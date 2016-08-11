@@ -30,7 +30,7 @@ namespace CSharpSwagger
 			// Give the deed a Title Number and MdRef
 			string titleNumber = "CYM123457";
 			string mdRef = "e-MD12344";
-			string property_address = "30 the gardens, the city, post cde";
+			string property_address = "3930 the gardens, the city, post cde";
 			string identity_checked = "Y";
 
 			// create at least one borrower
