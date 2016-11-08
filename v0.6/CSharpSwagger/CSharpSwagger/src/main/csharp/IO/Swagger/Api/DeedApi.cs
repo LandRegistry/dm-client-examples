@@ -297,8 +297,9 @@ namespace IO.Swagger.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (deedReference != null) localVarPathParams.Add("deed_reference", Configuration.ApiClient.ParameterToString(deedReference)); // path parameter
-            if (accept != null) localVarHeaderParams.Add("Accept", Configuration.ApiClient.ParameterToString(accept)); // header parameter
-
+            
+			// This is added on line 293 / 294 and causes a duplicate key exception to occur if kept in; the key below is essentially added above
+			//if (accept != null) localVarHeaderParams.Add("Accept", Configuration.ApiClient.ParameterToString(accept)); // header parameter
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,

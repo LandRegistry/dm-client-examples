@@ -66,9 +66,9 @@ namespace CSharpSwagger
 		}
 
 		private static string PostDeed(string titleNumber, string mdRef, Borrowers borrowerList,
-		                               string property_address, string identity_checked) {
+		                               string identity_checked, string property_address) {
 			DefaultApi deedPost = new DefaultApi(new Configuration(client));
-			DeedApplication deedApp = new DeedApplication(titleNumber,borrowerList,mdRef,property_address,identity_checked);
+			DeedApplication deedApp = new DeedApplication(titleNumber, borrowerList, mdRef, identity_checked, property_address);
 
 			deedApp.Borrowers = borrowerList;
 
