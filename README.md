@@ -20,7 +20,9 @@ The C\# client was built using [Xamarin studios](https://xamarin.com/)
 
 3. The project solution file is ``` ./v0.1/CSharpSwagger/CSharpSwagger.sln ``` of this repository
 
-4. Once it loads all you need to do is hit the **play** button or use the shortcut ``` cmd + alt + enter ```
+4. For later versions, you will need to add a certificate called BGTEST-CERT, to the bin/debug folder.
+
+5. Once it loads all you need to do is hit the **play** button or use the shortcut ``` cmd + alt + enter ```
 
 A console will popup with the output of the application.
 
@@ -32,6 +34,8 @@ A console will popup with the output of the application.
 
 3. The project solution file is ``` ./v0.1/CSharpSwagger/CSharpSwagger.sln ``` of this repository
 
-4. Once it loads all you need to do is hit the **play**/**start** button or use the shortcut ``` F5 ```
+4. For later versions, you will need to add a certificate called BGTEST-CERT, to the bin/debug folder.
+
+5. Once it loads all you need to do is hit the **play**/**start** button or use the shortcut ``` F5 ```
 
 A console will popup with the output of the application.
