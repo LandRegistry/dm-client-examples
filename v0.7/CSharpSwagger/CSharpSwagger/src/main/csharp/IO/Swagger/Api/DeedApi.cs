@@ -278,15 +278,17 @@ namespace IO.Swagger.Api
                 "application/pdf"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+			if (localVarHttpHeaderAccept != null)
+				localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
 
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (deedReference != null) localVarPathParams.Add("deed_reference", Configuration.ApiClient.ParameterToString(deedReference)); // path parameter
-            if (accept != null) localVarHeaderParams.Add("Accept", Configuration.ApiClient.ParameterToString(accept)); // header parameter
-
+            
+			// Accept is configured by default a few lines above. (line 282) - May need to revise this
+			//if (accept != null) localVarHeaderParams.Add("Accept", Configuration.ApiClient.ParameterToString(accept)); // header parameter
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
@@ -356,15 +358,14 @@ namespace IO.Swagger.Api
                 "application/pdf"
             };
             String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+			if (localVarHttpHeaderAccept != null)
+				localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (deedReference != null) localVarPathParams.Add("deed_reference", Configuration.ApiClient.ParameterToString(deedReference)); // path parameter
             if (accept != null) localVarHeaderParams.Add("Accept", Configuration.ApiClient.ParameterToString(accept)); // header parameter
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,

@@ -26,7 +26,6 @@ namespace CSharpSwagger
 				restClient.ClientCertificates.Add (certificate);
 			}
 
-
 			// Give the deed a Title Number and MdRef
 			string titleNumber = "CYM123457";
 			string mdRef = "e-MD12344";
